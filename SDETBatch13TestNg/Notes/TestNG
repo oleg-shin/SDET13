@@ -1,0 +1,33 @@
+TestNG:
+    is a tool
+    it can be used to unit test, integration test etc
+    no main needed if working with testNG
+
+1) is readable easily
+2) is reusable
+3) generates a report
+4) is more efficient
+5) can read data from different sources
+6) is cross platform compatible
+7) to execute selected test cases in form of batches
+
+Annotations:
+    1) @Test:
+        all the test cases must be written down under the annotation of @Test
+
+Whenever you run a class, it is going to execute each and every method under the annotation of @Test
+
+by default @Test annotation follows alphabetical order of execution of the test cases
+
+the green tick indicates that test case has passed
+the red sign indicates that the test case has failed
+
+@beforeMethod is alwaus going to execute before @Test
+
+the code under this annotation is going to execute everything before each and every
+@Test execution is made
+
+@AfterMethod annotation:
+
+
+

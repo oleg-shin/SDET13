@@ -1,0 +1,61 @@
+Cucumber - it is a tool that supports BDD
+
+    Given - pre condition
+    When - to perform action
+    And - supporting tag
+    Then - expected result/outcome
+
+US - 12345
+
+Given - user is able to open chrome browser
+When - user enters username and password
+And user clicks on login button
+Then user is navigated to dashboard page
+When user clicks on PIM option
+And user click on employee list option
+When user enters name in the employee name field
+And user click on search button
+Then user is able to see the employee
+
+US - 2345 Search employee by id
+
+Given - user is able to open chrome browser
+When - user enters username and password
+And user clicks on login button
+Then user is navigated to dashboard page
+When user clicks on PIM option
+And user click on employee list option
+When user enters id in the employee id field;.
+And user click on search button
+Then user is able to see the employee
+
+-- Cucumbers encourages code re usability concept --
+
+main - the code we write to develop the app, we write under main
+
+test - the code we write to test the app, we write under test
+
+2 thing we have in every project
+    - code - java
+    - non java - files, properties file, excel etc.
+
+ coding will be at one place and non java will be at another place
+
+-- to wrote gherkin scenarios, we use features files
+
+Valid admin login
+Given user is navigated to HRMS application
+When user enters admin username and password
+And clicks on login button
+Then admin user is successfully logged in
+
+scenario - every scenario is considered as one test case
+
+why we don't need system.property() - "driver/chromedriver.exe"
+if the path is incorrect to webdriver - it will fail, path is limited to one machine
+many time it is not compatible with browser
+
+we use webdrivermanager from now on
+
+POM page object model is a design pattern in which we create object repository
+

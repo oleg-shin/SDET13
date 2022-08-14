@@ -1,0 +1,55 @@
+Gives us the control to decide that to execute from the whole project
+    1) we can decide which package to execute
+    2) we can decide which class to execute
+    3) we can decide which methods to execute
+
+
+Task1:
+    Class wise execution of Project using testNgXML:
+
+<suite>
+    <test>
+        <classes>
+             <class name="class02.enableDisable"></class>
+             <class name="class01.testNGannotations"></class>
+             <class name="class02.priority"></class>
+        </classes>
+    </test>
+</suite>
+
+Task2:
+    Method wise execution:
+
+<suite>
+    <test>
+        <classes>
+            <class name="class02.priority">
+                <methods>
+                    <include name="ThirdTest"></include>
+                    <include name="FourthTest"></include>
+                    <include name="FirstTest"></include>
+                    <include name="SecondTest"></include>
+                </methods>
+            </class>
+            <class name="class02.enableDisable">
+                <methods>
+                    <include name="ThirdTest"></include>
+                    <exclude name="SecondTest"></exclude>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
+
+Task3:
+    Package based execution
+
+<suite name="Package Base Execution">
+    <test>
+        <packages>
+            <package name="class01"></package>
+        </packages>
+    </test>
+</suite>
+
+

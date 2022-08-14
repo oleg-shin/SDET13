@@ -1,0 +1,37 @@
+XML:
+    is a file format just like text, json, HTML etc
+
+<project>
+    <message>"hello world"</message>
+</project>
+
+am example for json:
+
+{
+    "project":"project1",
+    "message":"hello world"
+}
+
+a text file:
+
+the project is project1 and the message is hello world
+----------------------------------------------------------------------
+1.Maven project:
+simply click on new project
+select maven from options
+and create a new project with a name
+maven porject saves you from hustle of adding dependencies like u do in java project (adding jasrs manually)
+in maven you can mention the dependency that u need from maven repo
+add it in the POM.xml
+reload the project
+and it is there for you to use.
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.1.0</version>
+        </dependency>
+    </dependencies>
+----------------------------------------------------------------------
+
