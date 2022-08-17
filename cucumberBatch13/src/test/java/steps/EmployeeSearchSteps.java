@@ -35,4 +35,9 @@ public class EmployeeSearchSteps extends CommonMethods {
         // homework - verify the employee is present
         System.out.println("Employee is available");
     }
+
+    @When("user enters name of the employee")
+    public void user_enters_name_of_the_employee() {
+        sendText(emp.nameEmployeeSearch, "test");
+    }
 }

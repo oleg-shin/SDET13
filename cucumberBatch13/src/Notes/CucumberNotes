@@ -59,3 +59,22 @@ we use webdrivermanager from now on
 
 POM page object model is a design pattern in which we create object repository
 
+-- architecture of framework --
+
+    -- utils - to keep all the utilities of our pproject such as constants, config reader
+            common methods etc to reuse them
+
+    -- steps - all steps definitions can be found under this package for the gherkin steps
+            we used in feature file
+
+    -- pages - POM - to implement object repository and functions.
+
+    -- runner class - we use this class execute all of our test cases
+
+For pre condition and post condition in cucumber we have 2 annotations
+-- Hooks
+
+    -- @Before -- use for pre condition
+    -- @After -- use for post condition
+
+-- hooks should always be mentioned under steps package
