@@ -1,17 +1,21 @@
 Feature: Login feature
+
   Scenario: Valid admin login
     # to comment use #
     #Given user is navigated to HRMS application
+  @smoke
     When user enters valid admin username and password
     And user clicks on login button
     Then admin user is successfully logged in
 
+  @regression
   Scenario: Valid ess login
     #Given user is navigated to HRMS application
     When user enters ess username and password
     And user clicks on login button
     Then ess user is successfully logged in
 
+  @regression
   Scenario: Invalid login
     #Given user is navigated to HRMS application
     When user enters invalid username and password

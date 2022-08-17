@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         // features we use to provide the path of all the features file
-        features = "src/test/resources/features/",
+        features = "src/test/resources/features/EmployeeSearch.feature",
         // glue is where we find implementations for gherkin steps
         // we provide the path of package where we defined all the steps
         glue = "steps",
@@ -18,7 +18,9 @@ import org.junit.runner.RunWith;
         // it cleans your console output for cucumber test
         // if it has unreadable character in it
         // recommended is, to set it to true
-        monochrome = true
+        monochrome = true,
+        // execute test cases with that specific tag only
+        tags = "@smoke"
 )
 public class RunnerClass {
 }
