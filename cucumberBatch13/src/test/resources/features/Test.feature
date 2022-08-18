@@ -1,3 +1,3 @@
 Feature: This is test features
   Scenario:
-    Given I am able to open browser
+    * user enters valid admin username and password

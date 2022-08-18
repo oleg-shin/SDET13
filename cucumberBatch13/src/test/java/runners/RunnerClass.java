@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         // features we use to provide the path of all the features file
-        features = "src/test/resources/features/EmployeeSearch.feature",
+        features = "src/test/resources/features/",
         // glue is where we find implementations for gherkin steps
         // we provide the path of package where we defined all the steps
         glue = "steps",
@@ -20,7 +20,8 @@ import org.junit.runner.RunWith;
         // recommended is, to set it to true
         monochrome = true,
         // execute test cases with that specific tag only
-        tags = "@smoke"
+        tags = "@login"
+
 )
 public class RunnerClass {
 }

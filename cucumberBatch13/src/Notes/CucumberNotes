@@ -87,3 +87,29 @@ For pre condition and post condition in cucumber we have 2 annotations
             -- Hooks execute first then background executes then scenario executes
 
 
+-- cucumber option in runner class --
+    dry run - to quickly get the step definitions
+
+-- whenever we write new scenario in feature file, we must set dryyrun to true
+     for step definition and then put this definition under steps package,
+        after writing the code in it, agin set dryrun to false and execute the script
+
+-- monochrome - when we set it to true, it removes irrelevant information
+    or unreadable character from console while executing cucumber test cases
+
+-- Hooks --
+    pre condition @Before
+    post condition @After
+
+    we must keep hooks class under steps package
+
+-- Background --
+    common steps in a feature file until flow is not broken
+    it is applicable only to feature file, every file can have a different background
+
+-- Tags --
+    to categorize our scenarios for execution
+
+-- data driven testing --
+    when we execute our script against multiple sets of data we call it
+    data driven testing by using "Scenario Outline" feature
