@@ -4,7 +4,10 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import utils.CommonMethods;
+import utils.Constants;
+import utils.ExcelReader;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -46,8 +49,8 @@ public class AddEmployeeSteps extends CommonMethods {
         sendText(addEmployee.lastName, ln);
     }
 
-    @When("user adds mulitiple employees and verify they are added")
-    public void user_adds_mulitiple_employees_and_verify_they_are_added(DataTable dataTable) throws InterruptedException {
+    @When("user adds multiple employees and verify they are added")
+    public void user_adds_multiple_employees_and_verify_they_are_added(DataTable dataTable) throws InterruptedException {
         // to get the data from feature file in the form of list of maps
         List<Map<String, String>> employeeNames = dataTable.asMaps();
 
@@ -73,6 +76,26 @@ public class AddEmployeeSteps extends CommonMethods {
 
             // verify that the employee added
 
+        }
+    }
+    @When("user adds multiple employees from excel file using {string} sheet")
+    public void user_adds_multiple_employees_from_excel_file_using_sheet(String sheetName) {
+        List<Map<String, String>> newEmployees = ExcelReader.excelListIntoMap(Constants.TEST_DATA_FILEPATH, sheetName);
+        Iterator<Map<String, String>> itr = newEmployees.iterator();
+        while (itr.hasNext()){
+            Map<String, String> mapNewEmp = itr.next();
+
+            sendText(addEmployee.firstName, mapNewEmp.get("firstName"));
+            sendText(addEmployee.lastName, mapNewEmp.get("lastName"));
+            sendText(addEmployee.middleName, mapNewEmp.get("middleName"));
+            sendText(addEmployee.photograph, mapNewEmp.get("photograph"));
+            if(!addEmployee.checkBox.isSelected()){
+                click(addEmployee.checkBox);
+            }
+            sendText(addEmployee.usernameEmployee, mapNewEmp.get("username"));
+            sendText(addEmployee.passwordEmployee, mapNewEmp.get("password"));
+            sendText(addEmployee.confirmPasswordEmployee, mapNewEmp.get("confirmPassword"));
+            click(addEmployee.saveButton);
         }
     }
 }

@@ -32,10 +32,12 @@ Feature: This feature is going to add employee in HRMS application
 
   @datatable
   Scenario: Adding multiple employees using data table
-    When user adds mulitiple employees and verify they are added
+    When user adds multiple employees and verify they are added
       | firstName | middleName | lastName  |
       | khryswana | MS         | jaman     |
       | zamis     | MS         | Gaukhar   |
       | tamis     | MS         | microsoft |
 
-
+  @excel
+  Scenario: Adding employees from excel file
+    When user adds multiple employees from excel file using "employeeData" sheet
