@@ -20,7 +20,7 @@ import org.junit.runner.RunWith;
         // recommended is, to set it to true
         monochrome = true,
         // execute test cases with that specific tag only
-        tags = "@login"
+        tags = "@dashboard"
 
 )
 public class RunnerClass {

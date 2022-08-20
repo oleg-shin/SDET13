@@ -29,3 +29,13 @@ Feature: This feature is going to add employee in HRMS application
       | romid     | ms         | zarif    |
       | rokan     | ms         | elisa    |
       | mama      | tarindi    | jamu     |
+
+  @datatable
+  Scenario: Adding multiple employees using data table
+    When user adds mulitiple employees and verify they are added
+      | firstName | middleName | lastName  |
+      | khryswana | MS         | jaman     |
+      | zamis     | MS         | Gaukhar   |
+      | tamis     | MS         | microsoft |
+
+

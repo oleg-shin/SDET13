@@ -113,3 +113,8 @@ For pre condition and post condition in cucumber we have 2 annotations
 -- data driven testing --
     when we execute our script against multiple sets of data we call it
     data driven testing by using "Scenario Outline" feature
+
+-- Data Table --
+
+    examples table - works for complete scenario
+    Data table - it works only for one step
