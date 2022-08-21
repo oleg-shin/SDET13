@@ -34,6 +34,8 @@ public class AddEmployeePage extends CommonMethods {
     @FindBy(id="re_password")
     public WebElement confirmPasswordEmployee;
 
+    @FindBy(id="employeeId")
+    public WebElement employeeID;
 
     public AddEmployeePage(){
         PageFactory.initElements(driver, this);

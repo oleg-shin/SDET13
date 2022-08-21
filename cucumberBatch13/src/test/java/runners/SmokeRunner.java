@@ -20,13 +20,14 @@ import org.junit.runner.RunWith;
         // recommended is, to set it to true
         monochrome = true,
         // execute test cases with that specific tag only
-        tags = "@sprint19",
+        tags = "@smoke",
         /**
          * when you use pretty keyword under plugin, it shows all the steps
          * which you executed in console
-         */
+        */
         plugin = {"pretty","html:target/cucumber.html"}
 
 )
-public class RunnerClass {
+
+public class SmokeRunner {
 }

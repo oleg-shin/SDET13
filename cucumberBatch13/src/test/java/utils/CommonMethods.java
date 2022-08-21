@@ -1,9 +1,8 @@
 package utils;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -11,6 +10,11 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import steps.PageInitilizer;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 public class CommonMethods extends PageInitilizer {
@@ -82,5 +86,31 @@ public class CommonMethods extends PageInitilizer {
         getJSExecutor().executeScript("arguments[0].click();", element);
     }
 
+    /**
+     * To take the screenshot
+     * cucumber accepts array of byte for screenshots
+     */
+    public static byte[] takeScreenshot(String fileName){
+        TakesScreenshot ts = (TakesScreenshot) driver;
+        byte[] picBytes = ts.getScreenshotAs(OutputType.BYTES);
+        File sourceFile = ts.getScreenshotAs(OutputType.FILE);
+
+        // how to name the screnshot
+        try {
+            FileUtils.copyFile(sourceFile,
+                    new File(Constants.SCREENSHOT_FILEPATH+fileName + " " +
+                            getTimeStamp("yyyy-MM-dd-HH-mm-ss")+".png"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return picBytes;
+    }
+
+    public static String getTimeStamp(String pattern){
+        Date date = new Date();
+        // to format the date according to the choice of our own
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+        return sdf.format(date);
+    }
 }
 

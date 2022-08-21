@@ -1,5 +1,5 @@
 Feature: Login feature
-
+  @sprint19
   Scenario: Valid admin login
     # to comment use #
     #Given user is navigated to HRMS application

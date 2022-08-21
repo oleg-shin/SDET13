@@ -3,6 +3,9 @@ package steps;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import utils.CommonMethods;
 import utils.Constants;
 import utils.ExcelReader;
@@ -79,23 +82,57 @@ public class AddEmployeeSteps extends CommonMethods {
         }
     }
     @When("user adds multiple employees from excel file using {string} sheet")
-    public void user_adds_multiple_employees_from_excel_file_using_sheet(String sheetName) {
+    public void user_adds_multiple_employees_from_excel_file_using_sheet(String sheetName) throws InterruptedException {
         List<Map<String, String>> newEmployees = ExcelReader.excelListIntoMap(Constants.TEST_DATA_FILEPATH, sheetName);
         Iterator<Map<String, String>> itr = newEmployees.iterator();
         while (itr.hasNext()){
             Map<String, String> mapNewEmp = itr.next();
 
             sendText(addEmployee.firstName, mapNewEmp.get("firstName"));
+
             sendText(addEmployee.lastName, mapNewEmp.get("lastName"));
+
             sendText(addEmployee.middleName, mapNewEmp.get("middleName"));
+
             sendText(addEmployee.photograph, mapNewEmp.get("photograph"));
+
             if(!addEmployee.checkBox.isSelected()){
                 click(addEmployee.checkBox);
             }
+
             sendText(addEmployee.usernameEmployee, mapNewEmp.get("username"));
+
             sendText(addEmployee.passwordEmployee, mapNewEmp.get("password"));
+
             sendText(addEmployee.confirmPasswordEmployee, mapNewEmp.get("confirmPassword"));
+
+            String empIdValue = addEmployee.employeeID.getAttribute("value");
+            System.out.println(empIdValue);
             click(addEmployee.saveButton);
+            Thread.sleep(4000);
+
+            jsClick(dash.employeeListOption);
+            //click(dash.employeeListOption);
+
+            Thread.sleep(2000);
+            sendText(emp.idEmployeeSearch, empIdValue);
+            click(emp.searchButton);
+
+            List<WebElement> rowData = driver.findElements((By.xpath("//table[@id='resultTable']/tbody/tr")));
+            for(int i=0; i<rowData.size(); i++){
+                System.out.println("I am inside the loop");
+                String rowText= rowData.get(i).getText();
+                System.out.println(rowText);
+
+                String expectedData = empIdValue + " " + mapNewEmp.get("firstName") +
+                        " " + mapNewEmp.get("middleName") + " " + mapNewEmp.get("lastName");
+
+                System.out.println(expectedData);
+                Assert.assertEquals(expectedData, rowData);
+            }
+
+            Thread.sleep(2000);
+            click(dash.addEmployeeOption);
         }
     }
 }
