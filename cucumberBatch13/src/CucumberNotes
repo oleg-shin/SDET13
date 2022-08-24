@@ -136,3 +136,9 @@ For pre condition and post condition in cucumber we have 2 annotations
             </plugin>
         </plugins>
     </build>
+
+
+-- generating a report that can have a screenshot in it --
+
+-- we have to add plagin in runner class to capture the details
+test cases during execution and then we use failed runner class

@@ -25,7 +25,11 @@ import org.junit.runner.RunWith;
          * when you use pretty keyword under plugin, it shows all the steps
          * which you executed in console
          */
-        plugin = {"pretty","html:target/cucumber.html"}
+        plugin = {"pretty","html:target/cucumber.html",
+                // create json report
+                "json:target/cucumber.json",
+                // rerun plugin will capture all the scenarios which were failed during execution
+                "rerun:target/failed.txt"}
 
 )
 public class RunnerClass {
